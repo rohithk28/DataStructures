@@ -1,0 +1,93 @@
+def prefix_sum(nums,k):
+    prefix_sum = 0
+    max_len = 0
+    first_index ={0: -1}
+    
+    for i in range(len(nums)):
+        prefix_sum += nums[i]
+        
+        if prefix_sum == k:
+            max_len = i + 1
+        elif (prefix_sum - k) in first_index:
+            length = i - first_index[prefix_sum - k]
+            max_len = max(max_len, length)
+        if prefix_sum not in first_index:
+            first_index[prefix_sum] = i
+    return max_len
+
+def pre_sumbyk(nums,k):
+    prefix_sum = 0
+    count = 0
+    freq ={0:1}
+    
+    for num in nums:
+        prefix_sum += num
+
+        remainder = prefix_sum % k
+        remainder = (remainder + k) % k
+
+        if remainder in freq:
+            count += freq[remainder]
+        freq[remainder] = freq.get(remainder, 0) + 1
+    return count
+        
+def prefixbyzero(nums):
+    prefix_sum = 0
+    max_len = 0
+    freq={0: -1}
+    for i in range(len(nums)):
+        prefix_sum += nums[i]
+        
+        if prefix_sum == 0:
+            max_len = i + 1
+        elif prefix_sum in freq:
+            length = i - freq[prefix_sum]
+            max_len = max(length,max_len)
+        if prefix_sum not in freq:
+            freq[prefix_sum] = i
+    return max_len
+
+def longest_equal_zeros_ones(nums):
+    freq={0: -1}
+    prefix_sum = 0
+    max_len = 0
+
+    for i in range(len(nums)):
+        val = -1 if nums[i] == 0 else 1
+        print(val, end=" ")
+        prefix_sum += val
+        
+        if prefix_sum in freq:
+            l = i - freq[prefix_sum]
+            if max_len < l:
+                max_len = l
+        else:
+            freq[prefix_sum] = i
+    return max_len
+
+def subarray_sum(nums, k):
+    freq ={0:1}
+    count = 0
+    prefix_sum = 0
+    for num in nums:
+        prefix_sum += num
+        
+        if prefix_sum -k in freq:
+            count += freq[prefix_sum - k]
+        freq[prefix_sum] = freq.get(prefix_sum, 0) + 1
+    return count
+
+kadanes - algo:
+
+def kadane(arr):
+    max_curr = arr[0]
+    maxi = arr[0]
+
+    for i in range(1,len(arr)):
+        max_curr = max(arr[i], max_curr + arr[i])
+        maxi = max(max_curr, maxi)
+
+    return maxi
+
+arr = list(map(int,input().split()))
+print(kadane(arr))

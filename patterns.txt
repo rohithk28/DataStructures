@@ -1,0 +1,64 @@
+📌 EASY (20 questions)
+
+Palindrome – number & string
+
+Reverse digits
+
+Simple digit sum
+
+Second largest (no sorting)
+
+Find min / max element
+
+Frequency – most frequent
+
+Frequency – smallest on tie
+
+First non-repeat
+
+Count vowels / digits
+
+Basic list search
+… and similar easy patterns (like in your PDF parsed questions) 
+lets-code.co.in
+
+📌 MEDIUM (20–30 questions)
+
+Frequency of Frequency (FoF)
+
+Circular neighbor logic
+
+Fair split prefix/suffix
+
+Mixed list + dict decisions
+
+Recursive digit problems
+
+Duplicate smallest/ largest logic
+
+Multi-condition scanning (mid PDF)
+
+Combined numeric / list logic
+
+Basic string + digit conditions
+
+Subarray count logic
+… and medium tricky variants 
+PREP INSTA
+
+📌 HARD (10–20 questions)
+
+Cost optimization combinations
+
+Complex string parsing + decisions
+
+Special group logic (like knight power logic in PDF) 
+Scribd
+
+Multi-condition nested logic
+
+Hard edge-case string problems
+
+Recursive numeric logic at scale
+… and test-style hard problems 
+PREP INSTA

@@ -1,0 +1,93 @@
+def binarysearch(nums,k):
+    low = 0
+    high = len(nums) - 1
+    found = False
+    while low < high:
+        mid = (low + high) // 2
+        
+        if k == nums[mid]:
+            found = True
+            break
+        elif k < nums[mid]:
+            high = mid - 1
+        else:
+            low = mid + 1
+    if found:
+        print("Found")
+    else:
+        print("Not Found")
+
+
+
+nums = list(map(int,input().split()))
+k = int(input())
+binarysearch(nums,k)
+
+def bubblesort(nums):
+    n = len(nums)
+    for i in range(n):
+        swapped = False
+        for j in range(0,n - i -1):
+            if nums[j] > nums[j + 1]:
+                nums[j],nums[j+1] = nums[j + 1],nums[j]
+                swapped = True
+        if swapped == False:
+            break
+    for i in range(n):
+        print(nums[i],end=" ")
+
+def selectionsort(nums):
+    n = len(nums)
+    for i in range(n):
+        min_idx = i
+        for j in range(i + 1, n):
+            if nums[j] < nums[min_idx]:
+                min_idx = j
+        nums[i], nums[min_idx] = nums[min_idx], nums[i]
+        
+    for i in range(n):
+        print(nums[i],end=" ")
+
+def insertionsort(nums):
+    n = len(nums)
+    for i in range(1,n):
+        key = nums[i]
+        j = i - 1
+        
+        while j >= 0 and key < nums[j]:
+            nums[j + 1] = nums[j]
+            j -= 1
+        nums[j+1] = key  
+    for i in range(n):
+        print(nums[i],end=" ")
+        
+
+def min_max_load(arr,k,n,max_load):
+    workers = 1
+    curr_sum = 0
+    
+    for i in range(n):
+        if curr_sum + arr[i] <= max_load:
+            workers += 1
+            curr_sum = arr[i]
+    return workers <= k
+        
+    
+    
+    
+
+def binary_search(arr,n,k,min_max_load):
+    start = max(arr)
+    end = sum(arr)
+    
+    answer = end
+    
+    while start < end:
+        mid = (start + end ) // 2
+        if min_max_load(arr,k,n,mid):
+            answer = mid
+            end = mid - 1
+        else:
+            low = mid + 1
+    return answer 
+        

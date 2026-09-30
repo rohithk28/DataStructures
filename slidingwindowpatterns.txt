@@ -1,0 +1,88 @@
+1. def max_sum_subarray(nums, k):
+    left = 0
+    
+    window_sum = 0
+    for i in range(k):
+        window_sum += nums[i]
+    max_sum = window_sum
+    for right in range(k,len(nums)):
+        window_sum += nums[right]
+        window_sum -= nums[left]
+        max_sum = max(max_sum, window_sum)
+        left += 1
+    return max_sum
+        
+2.def longestsubstring(s):
+    left = 0
+    max_len = 0
+    seen = set()
+    
+    for right in range(len(s)):
+        while s[right] in seen:
+            seen.remove(s[left])
+            left += 1
+            
+        seen.add(s[right])
+        max_len= max(max_len, right - left + 1)
+    return max_len
+
+3.def longestfork(s,k):
+    left = 0
+    freq = {}
+    max_len = 0
+    
+    for right in range(len(s)):
+        freq[s[right]] = freq.get(s[right],0) + 1
+        
+        while len(freq) > k:
+            freq[s[left]] -= 1
+            if freq[s[left]] == 0:
+                del freq[s[left]]
+            left += 1
+        max_len = max(max_len, right - left + 1)
+    return max_len
+
+4.def minsize(nums,target):
+    left = 0
+    min_len = float('inf')
+    curr_sum = 0
+    for right in range(len(nums)):
+        curr_sum += nums[right]
+        
+        while curr_sum >= target:
+            min_len = min(min_len, right - left + 1)
+            curr_sum -= nums[left]
+            left += 1
+    if min_len == float('inf'):
+        print(0)
+    else:
+        return min_len
+    
+
+# s =input()
+# k = int(input())
+# n = int(input())
+nums = list(map(int,input().split()))
+target = int(input())
+print(minsize(nums,target))
+
+
+def maxcircularsum(arr):
+    curr_min = mini = arr[0]
+    curr_max = maxi = arr[0]
+    total = sum(arr)
+    
+    for num in arr[1:]:
+        curr_max = max(num, curr_max + num)
+        maxi = max(maxi, curr_max)
+        
+        curr_min = min(num,curr_min + num)
+        mini = min (mini,curr_min)
+        
+    if maxi < 0:
+        return maxi
+    return max(maxi,total - mini)
+    
+
+arr = list(map(int,input().split()))
+print(maxcircularsum(arr))

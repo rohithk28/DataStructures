@@ -1,0 +1,304 @@
+prime: -
+import math
+def is_prime(n):
+    for i in range(2,int(math.sqrt(n))+1): # int(n **0.5) -> sqrt of n
+        if n % i == 0:
+            return False
+    return True
+
+n = int(input())
+if not is_prime(n):
+    print("Prime")
+else:
+    print("Not prime")
+    
+
+
+palindrome:
+def recursive(n,rev):
+    if n == 0:
+        return rev
+    return recursive(n // 10 , rev * 10 + n % 10)
+n= int(input())
+if n <= 0:
+    print("Invalid Input")
+else:
+    reversed = recursive(n,0)
+    if n == reversed:
+        print("Palindrome")
+    else:
+        print("Not palindrome")
+    
+  return single sum digit:
+
+def sum(n):
+    if n == 0:
+        return 0
+    return (n % 10) + sum(n // 10) 
+def return_single(n):
+    if n < 10:
+        return n
+    else:
+        return return_single(sum(n))
+
+n =int(input())
+if n <= 0:
+    print("Invalid Input")
+else:
+    print(return_single(n))
+
+4. max_freq_element:
+n= int(input())
+li = list(map(int,input().split()))
+
+di ={}
+
+for i in li:
+    if i in di:
+        di[i] += 1
+    else:
+        di[i] = 1
+count = 0
+result = None
+for key,value in di.items():
+    if value > count or (value == count and (result is None or (key < result))):
+        count = value
+        result = key
+print(result)
+
+5. Second distinct highest number:
+n= int(input())
+li = list(map(int,input().split()))
+
+if n < 2:
+    print("-1")
+else:
+    first = None
+    second = None 
+    for num in li:
+        if first is None or num > first:
+            if first != num:
+                second = first
+                first = num
+        elif num != first and (second is None or num > second):
+            second = num
+    if second is None:
+        print(-1)
+    else:
+        print(second)
+
+6. smallest duplicates
+n = int(input())
+li = list(map(int,input().split()))
+
+di ={}
+for i in li:
+    if i in di:
+        di[i] += 1
+    else:
+        di[i] = 1
+found = None
+for key,value in di.items():
+    if value > 1 and (found is None or (key < found)):
+        found = key
+if found is None:
+    print(-1)
+else:
+    print(found)
+
+7. max_frequency in string:
+s=input()
+di ={}
+
+for ch in s:
+    if ch in di:
+        di[ch] += 1
+    else:
+        di[ch] = 1
+odd_freq = None
+even_freq = None
+for key,value in di.items():
+    if (value % 2 != 0):
+        if (odd_freq is None or (value > odd_freq)):
+            odd_freq = value
+    elif (value % 2 == 0):
+        if (even_freq is None or (even_freq > value)):
+            even_freq = value
+    
+if odd_freq is None or even_freq is None:
+    print(0)
+else:
+    diff = abs((odd_freq) - (even_freq))
+    print(diff)
+
+8. frequencies of frequency 
+s=input()
+di ={}
+di2={}
+
+for ch in s:
+    if ch in di:
+        di[ch] += 1
+    else:
+        di[ch] = 1
+
+for key,value in di.items():
+    if value in di2:
+        di2[value] += 1
+    else:
+        di2[value] = 1
+
+max_freq = None
+result_freq = None
+for key,value in di2.items():
+    if max_freq is None or (value > max_freq) or ((max_freq == value) and (key < result_freq)):
+        max_freq = value
+        result_freq = key
+if result_freq is None:
+    print(0)
+else:
+    print(result_freq)
+
+9. Biggest Neigbours count (circular)
+n = int(input())
+li = list(map(int,input().split()))
+
+for i in range(n):
+    count = 0
+    left = li[(i - 1 + n) % n]
+    right = li[(i + 1) % n]
+    
+    if li[i] < left:
+        count += 1
+    if li[i] < right:
+        count += 1
+    print(count,end=" ")
+
+10. Prefix_sum 
+n = int(input())
+li = list(map(int,input().split()))
+
+count =0
+total_sum =0
+for i in range(n):
+    total_sum += li[i]
+
+prefix_sum =0
+for i in range(n-1):
+    prefix_sum += li[i]
+    right = total_sum - prefix_sum
+    
+    if abs(prefix_sum - right) % 2 == 0:
+        count += 1
+print(count)
+
+11. odd_freq
+s = input()
+di={}
+
+for ch in s:
+    if ch in di:
+        di[ch] += 1
+    else:
+        di[ch] = 1
+
+max_odd = None
+min_odd =None
+odd_count=0
+for key,value in di.items():
+    if  (value % 2 != 0): 
+        odd_count += 1
+        if max_odd is None or max_odd < value:
+            max_odd = value
+        if min_odd is None or min_odd > value:
+            min_odd = value
+if odd_count < 2 :
+    print(0)
+else:
+    diff = abs(max_odd - min_odd)
+    print(diff)
+
+12. To find min_cost of people to transport
+import math
+n = int(input())
+p = int(input())
+q = int(input())
+
+fuelcost = 75
+cap_bus = 80
+cap_shutt = 12
+
+min_cost =None
+max_bus = (n + cap_bus - 1) // cap_bus
+for bus in range(max_bus):
+    people_by_bus = bus * cap_bus
+    remaining = n - people_by_bus
+
+    if remaining < 0:
+        remaining = 0
+    shuttles = (remaining + cap_shutt -1 ) // cap_shutt
+    total_cost = (bus * p + shuttles * q)* fuelcost
+    
+    if min_cost is None or total_cost < min_cost:
+        min_cost = total_cost
+print(min_cost)
+    
+
+14. To print the count of digits satisfied in string
+s =input()
+n= len(s)
+
+count =0
+i =0
+
+while i < n:
+    if s[i].isdigit():
+        start = i
+        while i < n and s[i].isdigit():
+            i += 1
+        end =i -1
+        
+        if start > 0 and end < n - 1:
+            if s[start -1].isalpha() and s[end+1].isalpha():
+                count += 1 
+    else:
+        i+=1
+print(count)
+
+To repeat the forst occurance in string
+s = input()
+
+first =[0] * 26
+result = ""
+
+for i in range(len(s)):
+    index = ord(s[i]) - ord('a')
+    if first[index] == 0:
+        first[index] = i + 1
+    if i > 0:
+        result = result + "-"
+    for _ in range(first[index]):
+        result = result + s[i]
+print(result)
+
+To print count of other letters not present in one string alongside the frequencies
+s1 = input()
+s2 = input()
+
+freq1 = [0] * 26
+freq2 = [0] * 26
+
+for ch in s1:
+    index = ord(ch) - ord('A')
+    freq1[index] += 1 
+
+for ch in s2:
+    index = ord(ch) - ord('A')
+    freq2[index] += 1 
+
+cost = 0
+for i in range(26):
+    if freq2[i] > freq1[i]:
+        cost = cost +(freq2[i] - freq1[i])
+print(cost)
+

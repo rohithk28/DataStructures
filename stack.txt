@@ -1,0 +1,57 @@
+1.
+def is_valid_parentheses(s):
+    stack = []
+    di={
+        ')':'(', '}':'{', ']':'['
+    }
+    
+    for ch in s:
+        if ch in "(,{,[":
+            stack.append(ch)
+        else:
+            if not stack:
+                return False
+            top = stack.pop()
+            if top != di[ch]:
+                return False
+    return len(stack) == 0
+
+2. 
+def remove_adjacent_duplicates(s):
+    stack =[]
+    
+    for ch in s:
+        if stack and stack[-1] == ch:
+            stack.pop()
+        else:
+            stack.append(ch)
+            
+    return "".join(stack)
+
+3.
+def next_greater_elements(nums):
+    stack=[]
+    res = [-1] * len(nums)
+    
+    for right in range(len(nums) - 1,-1,-1):
+        while stack and stack[-1] <= nums[right]:
+            stack.pop()
+        if stack:
+            res[right] = stack[-1]
+        stack.append(nums[right])
+    return res
+
+4.
+def stock_span(prices):
+    stack=[]
+    res =[]
+    for num in prices:
+        span = 1
+        while stack and stack[-1][0] <= num:
+            span += stack.pop()[1]
+        
+        stack.append((num,span))
+        res.append(span)
+    return res
+
+

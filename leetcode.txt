@@ -1,0 +1,118 @@
+ARRAYS & HASHING
+LC No	Problem
+1	Two Sum
+26	Remove Duplicates from Sorted Array
+27	Remove Element
+53	Maximum Subarray
+66	Plus One
+88	Merge Sorted Array
+121	Best Time to Buy and Sell Stock
+136	Single Number
+169	Majority Element
+217	Contains Duplicate
+238	Product of Array Except Self
+268	Missing Number
+283	Move Zeroes
+349	Intersection of Two Arrays
+448	Find All Numbers Disappeared
+560	Subarray Sum Equals K
+
+STRINGS
+LC No	Problem
+14	Longest Common Prefix
+20	Valid Parentheses
+28	Find Index of First Occurrence
+58	Length of Last Word
+125	Valid Palindrome
+242	Valid Anagram
+344	Reverse String
+387	First Unique Character
+392	Is Subsequence
+409	Longest Palindrome
+680	Valid Palindrome II
+
+TWO POINTER / SLIDING WINDOW
+LC No	Problem
+11	Container With Most Water
+15	3Sum
+42	Trapping Rain Water
+76	Minimum Window Substring
+209	Minimum Size Subarray Sum
+424	Longest Repeating Character Replacement
+567	Permutation in String
+643	Maximum Average Subarray
+
+BINARY SEARCH
+LC No	Problem
+35	Search Insert Position
+69	Sqrt(x)
+153	Find Minimum in Rotated Sorted Array
+162	Find Peak Element
+704	Binary Search
+852	Peak Index in Mountain Array
+
+LINKED LIST
+LC No	Problem
+21	Merge Two Sorted Lists
+83	Remove Duplicates from Sorted List
+141	Linked List Cycle
+160	Intersection of Two Linked Lists
+206	Reverse Linked List
+234	Palindrome Linked List
+876	Middle of the Linked List
+
+STACK & QUEUE
+LC No	Problem
+20	Valid Parentheses
+155	Min Stack
+225	Implement Stack using Queues
+232	Implement Queue using Stacks
+496	Next Greater Element I
+739	Daily Temperatures
+
+TREES
+LC No	Problem
+94	Binary Tree Inorder Traversal
+100	Same Tree
+101	Symmetric Tree
+104	Maximum Depth of Binary Tree
+110	Balanced Binary Tree
+112	Path Sum
+144	Binary Tree Preorder Traversal
+145	Binary Tree Postorder Traversal
+226	Invert Binary Tree
+543	Diameter of Binary Tree
+572	Subtree of Another Tree
+700	Search in BST
+
+RECURSION & BACKTRACKING
+LC No	Problem
+46	Permutations
+78	Subsets
+90	Subsets II
+131	Palindrome Partitioning
+216	Combination Sum III
+
+BASIC DP (VERY IMPORTANT)
+Start understanding transition thinking.
+LC No	Problem
+70	Climbing Stairs
+198	House Robber
+300	Longest Increasing Subsequence
+322	Coin Change
+338	Counting Bits
+509	Fibonacci Number
+746	Min Cost Climbing Stairs
+
+MATRIX PROBLEMS
+LC No	Problem
+48	Rotate Image
+54	Spiral Matrix
+73	Set Matrix Zeroes
+74	Search a 2D Matrix
+
+GREEDY
+LC No	Problem
+55	Jump Game
+122	Best Time to Buy and Sell Stock II
+455	Assign Cookies
